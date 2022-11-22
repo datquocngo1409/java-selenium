@@ -60,7 +60,7 @@ public class CoreFunction {
     MainPage mainPage = MainPage.getInstance();
     public void login() {
         try {
-            System.out.println(mainPage.getUserItem().isDisplayed());
+            boolean isLoggedIn = mainPage.getUserItem().isDisplayed();
         } catch (Exception e) {
             String url = getUrl();
             open(url);

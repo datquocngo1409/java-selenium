@@ -10,7 +10,10 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class SettingTest {
     CoreFunction coreFunction = CoreFunction.getInstance();
     MainPage mainPage = MainPage.getInstance();
@@ -29,12 +32,14 @@ public class SettingTest {
     }
 
     @Test
+    @Execution(ExecutionMode.SAME_THREAD)
     public void goToSetting() {
         mainPage.getSetting().click();
         settingPage.getGoToPersons().click();
     }
 
     @Test
+    @Execution(ExecutionMode.SAME_THREAD)
     public void goToWOCSetting() {
         // coreFunction.startRecord();
         mainPage.getSetting().click();
